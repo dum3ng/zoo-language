@@ -1,5 +1,5 @@
 import { ValidationAcceptor, ValidationChecks } from 'langium';
-import { ZooAstType, Person } from './generated/ast';
+import { ZooAstType, Room  } from './generated/ast';
 import type { ZooServices } from './zoo-module';
 
 /**
@@ -9,7 +9,7 @@ export function registerValidationChecks(services: ZooServices) {
     const registry = services.validation.ValidationRegistry;
     const validator = services.validation.ZooValidator;
     const checks: ValidationChecks<ZooAstType> = {
-        Person: validator.checkPersonStartsWithCapital
+        Room: validator.checkPersonStartsWithCapital
     };
     registry.register(checks, validator);
 }
@@ -19,11 +19,11 @@ export function registerValidationChecks(services: ZooServices) {
  */
 export class ZooValidator {
 
-    checkPersonStartsWithCapital(person: Person, accept: ValidationAcceptor): void {
-        if (person.name) {
-            const firstChar = person.name.substring(0, 1);
+    checkPersonStartsWithCapital(room: Room, accept: ValidationAcceptor): void {
+        if (room.name) {
+            const firstChar = room.name.substring(0, 1);
             if (firstChar.toUpperCase() !== firstChar) {
-                accept('warning', 'Person name should start with a capital.', { node: person, property: 'name' });
+                accept('warning', 'Room name should start with a capital.', { node: room, property: 'name' });
             }
         }
     }

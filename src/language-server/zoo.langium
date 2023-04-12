@@ -22,7 +22,7 @@ ResidentInRoom:
     'res' resident=[Animal:ID];
 
 Species:
-    'species' name=ID;
+    'species' name=ID age=INT;
 
 Animal:
     'animal' name=ID 'of' species=[Species:ID];
