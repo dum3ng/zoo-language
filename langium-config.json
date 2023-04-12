@@ -1,0 +1,12 @@
+{
+    "projectName": "Zoo",
+    "languages": [{
+        "id": "zoo",
+        "grammar": "src/language-server/zoo.langium",
+        "fileExtensions": [".zoo"],
+        "textMate": {
+            "out": "syntaxes/zoo.tmLanguage.json"
+        }
+    }],
+    "out": "src/language-server/generated"
+}
