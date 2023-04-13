@@ -1,0 +1,16 @@
+zoo ChinaZoo  
+
+room Room1 
+room room2 
+
+species Tiger 3 
+species Lion 2 
+
+animal yark of Lion 
+animal rock of Tiger 
+
+private room SingleRoom in ChinaZoo {
+  res yark
+  res rock
+} 
+

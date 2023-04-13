@@ -6,18 +6,18 @@ grammar Zoo
 
 entry Model:
     (defs+=Def)*;
-    // (zoos+=Zoo | rooms+=Room | species+=Species | animals+=Animal)*;
+// (zoos+=Zoo | rooms+=Room | species+=Species | animals+=Animal)*;
 
 Def:
-    (Zoo | Room | Species | Animal) ';';
+    (Zoo | Room | Species | Animal);
 
 Zoo:
     'zoo' name=ID;
 
 Room:
     (private?='private')? 'room' name=ID ('in' zoo=[Zoo:ID])?  
-    ('{' residents=ResidentInRoom '}')?;
- 
+    ('{' (residents+=ResidentInRoom)* '}')?;
+
 ResidentInRoom:
     'res' resident=[Animal:ID];
 
